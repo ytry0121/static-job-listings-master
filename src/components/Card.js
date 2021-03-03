@@ -1,28 +1,31 @@
 import React from "react";
 import SmallCard from "./SmallCard"
 
-export default function Card({ job }) {
+export default function Card({ job, addCriteria }) {
     const langs = job.languages;
-//if(typeof langs !== "undefined")langs.map(lang => console.log(lang));
-
-return (<div className="cardContainer">
+ 
+    return (<div className="card">
         <div className="top">
-           {job.company}
-            <img alt="logo"  src={job.logo} />
-           <div className={job.new ? "new stamp" : "hide"}>{job.new ? "NEW!" : ""}</div>
-           <div className={job.featured ? "featured stamp" : "hide"}>{job.featured ? "FEATURED" : ""}</div>
-                       
-            <h3> {job.position}</h3>
+            <img alt="logo" src={job.logo} />
+            {/* <div className="description"> */}
+                <div className="cardHeader">
+                    <div className="name">{job.company}</div>
+                    <div className={job.new ? "new stamp" : "hide"}>{job.new ? "NEW!" : ""}</div>
+                    <div className={job.featured ? "featured stamp" : "hide"}>{job.featured ? "FEATURED" : ""}</div>
+                </div>
 
-           <p className="sub">{job.postedAt} • {job.contract} • {job.location}</p> 
+                <h3> {job.position}</h3>
+
+                <p className="sub">{job.postedAt} • {job.contract} • {job.location}</p>
+            {/* </div> */}
         </div>
         <div className="bottom">
-        <SmallCard key="role" keyWord={job.role}/>
-        <SmallCard key="level" keyWord={job.level}/>
-        {typeof langs !== "undefined"? langs.map(lang =>  <SmallCard key={lang} keyWord={lang}/>):null } 
+            <SmallCard key="role" keyword={job.role} handleCriteria={addCriteria} inFilter={false}/>
+            <SmallCard key="level" keyword={job.level} handleCriteria={addCriteria} inFilter={false}/>
+            {typeof langs !== "undefined" ? langs.map(lang => <SmallCard key={lang} keyword={lang} handleCriteria={addCriteria} inFilter={false}/>) : null}
 
-            
-           
+
+
         </div>
     </div>)
 }
