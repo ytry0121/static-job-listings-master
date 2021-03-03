@@ -1,0 +1,48 @@
+:root {
+    --desaturated-dark-cyan: hsl(180, 29%, 50%);
+    /* (Background) */
+    --light-grayish-cyan: hsl(180, 52%, 96%);
+    /* (Filter Tablets) */
+    --lighter-grayish-cyan: hsl(180, 31%, 95%);
+    --dark-grayish-cyan: hsl(180, 8%, 52%);
+    --very-dark-grayish-cyan: hsl(180, 14%, 20%);
+}
+
+body {
+    font-family: 'Spartan', sans-serif;
+    font-size: 15px;
+    color:var(--very-dark-grayish-cyan);
+    height:100%;
+    width:100%;
+    background: var( --lighter-grayish-cyan);
+}
+
+.cardContainer {
+    background: white;
+    width: auto;
+    height: 300px;
+    margin: 10px;
+}
+.stamp{
+    color:white;
+    font-size: 10px;
+    text-transform: uppercase;
+    width:fit-content;
+    padding:6px 8px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-align: center;
+}
+.new{
+    background: var(--desaturated-dark-cyan);
+ }
+ .featured{
+    background: var(--very-dark-grayish-cyan);
+ }
+.hide{
+    display: none;;
+}
+.sub{
+    color:var( --dark-grayish-cyan);
+    font-size: 10px;
+}

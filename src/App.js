@@ -1,25 +1,18 @@
 
+import React from "react"
+import data from "./data"
+import Card from "./components/Card"
+
+const jobs = data;
 function App() {
   return (
     <div className="App">
-    
-     {/* <!-- Item Start --> */}
-  Photosnap
-  New!
-  Featured
-  Senior Frontend Developer
-  1d ago
-  Full Time
-  USA only
-  {/* <!-- Role --> */}
-  Frontend
-  {/* <!-- Level --> */}
-  Senior
-  {/* <!-- Languages --> */}
-  HTML
-  CSS
-  JavaScript
-  {/* <!-- Item End --> */}
+    <ul> 
+    {
+      jobs.map( job =>(<Card key={job.id} job={job}/> ))
+    //<li key={job.id}>{job.company}<img src={process.env.PUBLIC_URL + job.logo}></img></li>
+    }
+    </ul>
 
     </div>
   );
