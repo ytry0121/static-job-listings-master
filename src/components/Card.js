@@ -2,7 +2,7 @@ import React from "react";
 import SmallCard from "./SmallCard"
 
 export default function Card({ job, addCriteria }) {
-    const langs = job.languages;
+    const {languages,tools}= job;
  
     return (<div className="card">
         <div className="top">
@@ -14,7 +14,7 @@ export default function Card({ job, addCriteria }) {
                     <div className={job.featured ? "featured stamp" : "hide"}>{job.featured ? "FEATURED" : ""}</div>
                 </div>
 
-                <h3> {job.position}</h3>
+                <h3>{job.position}</h3>
 
                 <p className="sub">{job.postedAt} • {job.contract} • {job.location}</p>
             {/* </div> */}
@@ -22,7 +22,8 @@ export default function Card({ job, addCriteria }) {
         <div className="bottom">
             <SmallCard key="role" keyword={job.role} handleCriteria={addCriteria} inFilter={false}/>
             <SmallCard key="level" keyword={job.level} handleCriteria={addCriteria} inFilter={false}/>
-            {typeof langs !== "undefined" ? langs.map(lang => <SmallCard key={lang} keyword={lang} handleCriteria={addCriteria} inFilter={false}/>) : null}
+            {typeof languages !== "undefined" ? languages.map(lang => <SmallCard key={lang} keyword={lang} handleCriteria={addCriteria} inFilter={false}/>) : null}
+            {typeof tools !== "undefined" ? tools.map(tool => <SmallCard key={tool} keyword={tool} handleCriteria={addCriteria} inFilter={false}/>) : null}
 
 
 

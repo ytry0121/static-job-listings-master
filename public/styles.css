@@ -7,10 +7,11 @@
     --dark-grayish-cyan: hsl(180, 8%, 52%);
     --very-dark-grayish-cyan: hsl(180, 14%, 20%);
 }
-*{
+
+* {
     box-sizing: border-box;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -21,22 +22,26 @@ body {
     width: 100%;
     background: var(--lighter-grayish-cyan);
 }
-.header{
+
+.header {
     width: 100%;
     height: 156px;
     background: var(--desaturated-dark-cyan) url("./images/bg-header-desktop.svg") no-repeat;
 }
-.main{
-    max-width:1100px; 
-    margin: -30px auto 100px; 
+
+.main {
+    max-width: 1100px;
+    margin: -30px auto 100px;
 }
-#filter{
-    width:100%;
-    height:72px;
-    background:white ;
-    display:flex;
+
+#filter {
+    width: 100%;
+    height: 72px;
+    background: white;
+    display: flex;
     align-items: center;
 }
+
 .card {
     background: white;
     width: 100%;
@@ -51,7 +56,7 @@ body {
 .top {
     display: grid;
     grid-template-columns: 115px 1fr;
-    grid-template-rows: repeat(3,1fr);
+    grid-template-rows: repeat(3, 1fr);
     align-items: self-end;
     /* align-items: center;
     width: 50%; */
@@ -63,18 +68,21 @@ body {
     grid-column: 1;
     grid-row: 1/4;
 }
+
 /* .description{
     margin:0 25px;
 } */
+
 .cardHeader {
     display: flex;
     align-items: center;
 }
-.name{
-    color:var(--desaturated-dark-cyan);
+
+.name {
+    color: var(--desaturated-dark-cyan);
     font-weight: 700;
-    
 }
+
 .stamp {
     color: white;
     font-size: 10px;
@@ -98,6 +106,11 @@ body {
     display: none;
 }
 
+h3:hover {
+    color: var(--desaturated-dark-cyan);
+    cursor: pointer;
+}
+
 .sub {
     color: var( --dark-grayish-cyan);
     font-size: 13px;
@@ -108,18 +121,35 @@ body {
     align-items: center;
 }
 
+.smallCardContainer {
+    display: flex;
+    margin: 0 6px;
+}
+
 .smallCard {
     background: var(--lighter-grayish-cyan);
     font-size: 13px;
     width: fit-content;
     height: fit-content;
     padding: 8px;
-    margin: 0 5px;
+    margin-left: 5px;
     color: var( --desaturated-dark-cyan);
     font-weight: 700;
 }
-.remove{
-    background:var(--desaturated-dark-cyan);
-    width:auto;
-    height:100%;
+
+.bottom .smallCard:hover {
+    color: white;
+    background: var(--desaturated-dark-cyan);
+    cursor: pointer;
+}
+
+.remove {
+    background: var(--desaturated-dark-cyan);
+    width: auto;
+    padding: 7px;
+}
+
+.remove:hover {
+    background: var(--very-dark-grayish-cyan);
+    cursor: pointer;
 }
