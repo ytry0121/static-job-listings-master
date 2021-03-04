@@ -1,10 +1,10 @@
 import React from "react";
 import SmallCard from "./SmallCard"
 
-export default function Card({ job, addCriteria }) {
+export default function Card({ job, addCriterion }) {
     const {languages,tools}= job;
  
-    return (<div className="card">
+    return (<div className={`card  ${job.featured ? "featuredCard" : ""}`}>
         <div className="top">
             <img alt="logo" src={job.logo} />
             {/* <div className="description"> */}
@@ -20,13 +20,10 @@ export default function Card({ job, addCriteria }) {
             {/* </div> */}
         </div>
         <div className="bottom">
-            <SmallCard key="role" keyword={job.role} handleCriteria={addCriteria} inFilter={false}/>
-            <SmallCard key="level" keyword={job.level} handleCriteria={addCriteria} inFilter={false}/>
-            {typeof languages !== "undefined" ? languages.map(lang => <SmallCard key={lang} keyword={lang} handleCriteria={addCriteria} inFilter={false}/>) : null}
-            {typeof tools !== "undefined" ? tools.map(tool => <SmallCard key={tool} keyword={tool} handleCriteria={addCriteria} inFilter={false}/>) : null}
-
-
-
+            <SmallCard key="role" keyword={job.role} handleCriteria={addCriterion} inFilter={false}/>
+            <SmallCard key="level" keyword={job.level} handleCriteria={addCriterion} inFilter={false}/>
+            { 'languages' in job ? languages.map(lang => <SmallCard key={lang} keyword={lang} handleCriteria={addCriterion} inFilter={false}/>) : null}
+            {'tools' in job ? tools.map(tool => <SmallCard key={tool} keyword={tool} handleCriteria={addCriterion} inFilter={false}/>) : null}
         </div>
     </div>)
 }

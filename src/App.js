@@ -6,34 +6,50 @@ import SmallCard from "./components/SmallCard"
 
 
 export default function App() {
-  const [jobs,setJobs] = useState(data);
+  const [jobs, setJobs] = useState(data);
   const [criteria, setCriteria] = useState([]);
-  function addCriteria(newCriteria) {
-    setCriteria(prevCriteria => {
-      let list = [...prevCriteria, newCriteria];
-      return list.filter((item, index) => list.indexOf(item) === index)
-    })
-    // setJobs(data.filter(job =>{
-    //   const list = [job.role,job.level]
-    //   typeof job.languages !=== "undefined"?...job.languages,list.push(...job.tools)];
-    //   return criteria.filter(criterion=> list.map(item=>item === criterion))
-    // }))
-    
+  function addCriterion(newCriterion) {
+    const criterionArray = [...criteria, newCriterion];
+    setCriteria(criterionArray.filter((item, index) => criterionArray.indexOf(item) === index))
+    handleFilter(criterionArray)
   }
 
-  function deleteCriteria(targetCriteria) {
-    setCriteria(prevCriteria => prevCriteria.filter(item => item !== targetCriteria))
+  function handleFilter(criterionArray) {
+    setJobs(
+      data.filter(
+        job => {
+          const keywords = [job.role, job.level];
+          if ('languages' in job) keywords.push(...job.languages)
+          if ('tools' in job) keywords.push(...job.tools)
+          const matchedKeywords = criterionArray.filter(criterion => keywords.find(item => item === criterion))
+          return matchedKeywords.length === criterionArray.length;
+        }
+      )
+    )
+  }
+
+  function deleteCriterion(targetCriterion) {
+    const criterionList = criteria.filter(item => item !== targetCriterion)
+    setCriteria(criterionList)
+    handleFilter(criterionList)
+  }
+
+  function allClear() {
+    setCriteria([])
+    handleFilter([])
   }
 
   return (
     <div>
       <div className="header"></div>
       <div className="main">
-        <div id="filter">
-          {criteria.map(criterion => <SmallCard key={criterion} keyword={criterion} handleCriteria={deleteCriteria} inFilter={true}/>)}
-
+        <div className={criteria.length === 0 ? "hide" : "filter"}>
+          <div className="selectedCriteria">{criteria.map(criterion => <SmallCard key={criterion} keyword={criterion} handleCriteria={deleteCriterion} inFilter={true} />)}</div>
+          <span className="clear" onClick={allClear}>Clear</span>
         </div>
-        {jobs.map(job => (<Card key={job.id} job={job} addCriteria={addCriteria} />))}
+        <div className="cardsContainer">
+        {jobs.map(job => (<Card key={job.id} job={job} addCriterion={addCriterion} />))}
+        </div>
       </div>
     </div>
   );
