@@ -7,7 +7,6 @@ export default function Card({ job, addCriterion }) {
     return (<div className={`card  ${job.featured ? "featuredCard" : ""}`}>
         <div className="top">
             <img alt="logo" src={job.logo} />
-            {/* <div className="description"> */}
             <div className="cardHeader">
                 <div className="name">{job.company}</div>
                 <div className={job.new ? "new stamp" : "hide"}>{job.new ? "NEW!" : ""}</div>
@@ -23,7 +22,6 @@ export default function Card({ job, addCriterion }) {
                 <span>&#183;</span>
                 {job.location}
             </p>
-            {/* </div> */}
         </div>
         <hr />
         <div className="bottom">

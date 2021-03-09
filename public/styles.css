@@ -37,6 +37,7 @@ body {
 
 .main {
     max-width: 1110px;
+    width: 90%;
     margin: 0 auto 100px;
     position: relative;
 }
@@ -77,13 +78,15 @@ body {
     color: var( --dark-grayish-cyan);
     text-align: end;
 }
-.clear:hover{
+
+.clear:hover {
     border-bottom: var(--desaturated-dark-cyan) solid 1px;
     color: var(--desaturated-dark-cyan);
     cursor: pointer;
 }
 
 /* ---------------------------- */
+
 /* ----------- Card ----------- */
 
 /* ---------------------------- */
@@ -210,134 +213,85 @@ h3:hover {
     background: var(--very-dark-grayish-cyan);
     cursor: pointer;
 }
-@media only screen and (max-width: 900px) {
-    .main, .filter,.cardsContainer{
-        position:unset;
+
+@media only screen and (max-width: 1075px) {
+    .main, .filter, .cardsContainer {
+        position: unset;
     }
-    .main{
-        max-width:600px;
+    .main {
+        min-width: 500px;
     }
-    .filter{
+    .filter {
         height: fit-content;
-        padding:20px 20px 10px;
-        margin:-30px 0 30px;
+        padding: 20px 20px 10px;
+        margin: -30px 0 30px;
     }
-    .selectedCriteria{
+    .selectedCriteria {
         flex-wrap: wrap;
     }
-    .smallCardContainer{
+    .smallCardContainer {
         margin-bottom: 10px;
     }
-    .cardsContainer{
-       margin-top:60px;
+    .cardsContainer {
+        margin-top: 60px;
     }
-    .card{
+    .card {
         height: 200px;
         flex-direction: column;
         padding: 25px;
         margin-bottom: 40px;
         align-items: start;
     }
-    .featuredCard{
-        padding-left:20px;
+    .featuredCard {
+        padding-left: 20px;
     }
     .top {
         grid-template-columns: 1fr;
         grid-template-rows: 48px 42px 22px 44px;
         align-items: center;
         width: 100%;
-        margin-top:-50px;
+        margin-top: -50px;
     }
-    
     .top img {
         width: 48px;
         height: 48px;
         grid-row: 1;
     }
-    .name{
-        font-size: 13px;
+    hr {
+        border: 0;
+        border-top: var( --dark-grayish-cyan) solid 0.8px;
+        width: 100%;
+        margin-bottom: 15px;
     }
-    h3{
-        font-size: 1em;
-    }
-    hr{
-        border:0;
-        border-top:var( --dark-grayish-cyan) solid 0.8px;
-        width:100%;
-    }
-    .bottom{
+    .bottom {
         flex-wrap: wrap;
-        height:80px;
+        height: 80px;
     }
-    .sub{
-        font-size: 13px;
-    }
-    .sub span{
+    .sub span {
         margin: 0 7px;
     }
 }
-@media only screen and (max-width: 375px) {
-    .main, .filter,.cardsContainer{
-        position:unset;
+
+@media only screen and (max-width: 550px) {
+    .main {
+        min-width: 328px;
     }
-    .main{
-        max-width:328px;
-    }
-    .filter{
-        height: fit-content;
-        padding:20px 20px 10px;
-        margin:-30px 0 30px;
-    }
-    .selectedCriteria{
-        flex-wrap: wrap;
-    }
-    .smallCardContainer{
-        margin-bottom: 10px;
-    }
-    .cardsContainer{
-       margin-top:60px;
-    }
-    .card{
+    .card {
         height: 260px;
-        flex-direction: column;
-        padding: 25px;
-        margin-bottom: 40px;
     }
-    .featuredCard{
-        padding-left:20px;
-    }
-    .top {
-        grid-template-columns: 1fr;
-        grid-template-rows: 48px 42px 22px 44px;
-        align-items: center;
-        width: 100%;
-        margin-top:-50px;
-    }
-    
-    .top img {
-        width: 48px;
-        height: 48px;
-        grid-row: 1;
-    }
-    .name{
+    .name {
         font-size: 13px;
     }
-    h3{
+    h3 {
         font-size: 1em;
     }
-    hr{
-        border:0;
-        border-top:var( --dark-grayish-cyan) solid 0.8px;
-        width:100%;
+    hr {
+        margin-bottom: 0;
     }
-    .bottom{
-        flex-wrap: wrap;
-        height:80px;
+    .bottom {
+        align-content: end;
     }
-    .sub{
+    .sub {
         font-size: 13px;
-    }
-    .sub span{
-        margin: 0 7px;
     }
 }
